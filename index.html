@@ -3,589 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://use.typekit.net/vxy1uqp.css">
+  <link rel="stylesheet" type="text/css" href="./index.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
   <title>Toppings Delivery Service</title>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript">
+   (function(){
+      emailjs.init("user_8t0pD6Hjvovh0GCFDhEg5");
+   })();
+    </script>
+<script>
+     window.onload = function() {
+            document.getElementById('signup-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+             emailjs.send('signup_form', 'signup', this);
+        });
+    }
+</script>
 </head>
-
-<style>
-
-
-    html
-    {
-        scroll-behavior: smooth;
-        scroll-snap-type: proximity;
-        scroll-snap-points-y: repeat(3rem);
-        scroll-snap-type: y proximity;
-    }
-
-    body
-    {
-        width: 100%;
-        overflow-x: hidden;
-    }
-
-    section
-    {
-        scroll-snap-align: start;
-        padding-bottom: 5%;
-    }
-
-    h1 /*headings*/
-    {
-        font-family: fatfrank, sans-serif;
-        font-style: normal;
-        font-weight: 400;   
-        letter-spacing: -0.01em;
-        font-size: 5vw;
-    }
-
-    h2 /*subheading*/
-    {
-        font-family: forma-djr-deck, sans-serif;
-        font-style: normal;
-        font-weight: 700;
-    }
-
-    h3 /*subheading*/
-    {
-        font-family: forma-djr-deck, sans-serif;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-    }
-
-
-    p /*body texts*/
-    {
-        font-family: forma-djr-deck, sans-serif;
-        font-style: normal;
-        font-weight: 500;
-    }
-
-    a:any-link
-    {
-        font-family: forma-djr-deck, sans-serif;
-        font-style: normal;
-        font-weight: 700;
-        color:#FF5200;
-        text-decoration: none;
-    }
-
-
-    .bg-container-top
-    {
-        width: 100%;
-        height: 100vh;
-        position: relative;
-    }
-
-    .container
-    {
-        width: 100%;
-        position: relative;
-        top: 8vh;
-        left: 0;
-        margin: 0 auto; /*centers container*/
-        max-width: 1600px; /*control max width for larger screens*/
-        display: flex;
-        flex-direction: row;
-        align-items: flex-end;
-        padding-bottom: 10vh;
-    }
-
-    #navbar
-    {
-        margin: 0 auto;
-        position: fixed;
-        top: 0;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 12%;
-        transition: 0.4s;
-        background-color: white;
-        color:#FF5200;
-        border-bottom: 0.5px solid  #FF5200;
-        border-radius: 0px 0px 20px 20px;
-        padding: 1% 2% 0% 1%;
-        z-index: 1;
-       
-    }
-
-    /* .navshape
-    {
-        position: fixed;
-        top: -10vh;
-        left: -2vw;
-        width: 108vw;
-        z-index: -1;
-    } */
-
-    #navlinks
-    {
-        align-self: flex-end;
-        font-size: 1.3vw;
-        position: relative;
-        top: -45%;
-        right: 5%;
-        transition: 0.4s;
-    }
-
-    .navlink
-    {
-        padding-left: 1vw;
-    }
-
-    .hero
-    {
-        object-fit: cover;
-        width:  65vw;
-        height: 85vh;
-        border-radius: 0px 0px 40px 40px;
-        transform: scaleX(-1);
-        align-self: flex-center;
-        position: relative;
-        left: 4%;
-    }
-
-    .secondary
-    {
-        object-fit: cover;
-        width:  45vw;
-        height: 75vh;
-        border-radius: 40px;
-        align-self: flex-center;
-        position: relative;
-        left: 2vw;
-        right: 2vw;
-    }
-
-    #logo
-    {
-        height: 75%;
-        width: auto;
-        align-self: flex-start;
-        filter: hue-rotate(0);
-        transition: 0.4s;
-    }
-
-    .tagline-container
-    {
-        width: 20vw;
-        padding: 2%;
-        margin-left: 2%;
-        align-self: flex-end;
-        display: flex;
-        flex-direction: column;
-        position:  relative;
-        left: 2vw;
-    }
-
-    #secondary-container
-    {
-        width: 40vw;
-    }
-
-    .subtitle-contain
-    {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .subtitle
-    {
-        align-self: center;
-        line-height: 2;
-        font-size: 13px;
-        text-align: justify;
-        text-justify: inter-word;
-    }
-
-
-    /* .diagonal
-    {
-        width: 120%;
-        position:relative;
-        bottom: -1vh;
-        left: -5%;
-        display: none;
-        
-    } */
-
-    .diagonal
-    {
-        display: none;
-    }
-
-    #home
-    {
-        background-color: #FF5200;
-        color: white;
-        width: 100%;
-        margin-bottom: none;
-
-    }
-    #about
-    {
-        background-color: #FF5200;
-        color: white;
-        width: 100%;
-    }
-
-    .about-container
-    {
-        width: 90%;
-        height: 40%;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr; 
-        grid-gap: 8%;
-        margin-top: 8%;
-    }
-
-    .about-elem
-    {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .about-img
-    {
-        width: 40%;
-        height: auto;
-        align-self: center;
-        padding: 10%;
-        margin-bottom: 10%;
-        background: white;
-        border-radius: 20px;
-    }
-
-    .about-secondary
-    {
-        width: 60%;
-        margin: 0 auto; 
-        padding: 10%;
-        display: grid;
-        grid-template-columns: 1.25fr 4fr;
-        grid-gap: 15%;
-    }
-
-    .secondary-img
-    {
-        margin: 0 auto;
-        margin-top: 10%; 
-        width: 100%;
-        height: auto;
-        padding: 10%;
-        background: white;
-        border-radius: 20px;
-    }
-
-    #our-partners
-    {
-        background-color: white;
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 22.4vh;
-    }
-
-    #testimonials
-    {
-        background-color: #0083FF;
-        color: white;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-
-    }
-
-    #signup
-    {
-        background-color: white;
-        color: #FF5200;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        padding-top: 5%;
-  
-    }
-
-    #contact
-    {
-        margin-top: 5%;
-        background-color: #f4356f;
-        color: white;
-        width: 100%;
-        height: 100%;
-        padding-top: 5%;
-        padding-bottom: 35%;
-   
-
-
-    }
-
-    .contact-box
-    {
-        margin: 0 auto;
-        width: 30%;
-        height: 10%;
-        border-radius: 20px;
-        background: white;
-        padding: 2.5%;
-        color:#f4356f;
-        line-height: 2;
-        text-align: center;  
-
-    }
-
-    .center
-    {
-        align-self: center;
-        text-align: center;
-        margin: 0 auto;
-    }
-
-    .p-image /* partner img, must change for mobile*/
-    {
-        background-color: grey;
-        border-radius: 20px;
-    }
-
-    .p-container
-    {
-        display: grid;
-        width: 40vw;
-        height: 40vh;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-gap: 2.5vw;
-        margin-bottom: 2.5vw;
-
-    }
-
-
-    #arrow
-    {
-        align-self: center;
-        width: 3.5vw;
-        object-fit: cover;
-        padding-bottom:2vh;
-    }
-
-    input[type=checkbox]
-    {
-        margin-bottom: 4%; /* Bottom margin */
-    }
-    input[type=text], select, textarea {
-    width: 100%; /* Full width */
-    padding: 12px; /* Some padding */ 
-    border: 1px solid #ccc; /* Gray border */
-    border-radius: 4px; /* Rounded borders */
-    box-sizing: border-box; /* Make sure that padding and width stays in place */
-    margin-top: 6px; /* Add a top margin */
-    margin-bottom: 4%; /* Bottom margin */
-    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
-    }
-
-    input[type=submit] {
-    background-color: #FF5200;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer; 
-    font-family: forma-djr-deck, sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    }
-
-    .form-container {
-    width: 50%;
-    margin: 0 auto;
-     border-radius: 5px;
-     background-color: white;
-     padding: 20px;
-     
-    }
-
-    .reveal-if-active {
-        opacity: 0;
-        max-height: 0;
-        overflow: hidden;
-        transform: scale(0.8);
-        transition: 0.5s;
-    }
-
-    input[type="checkbox"]:checked ~ .reveal-if-active {
-        opacity: 1;
-        max-height: 200px;
-        overflow: visible;
-        padding: 10px 20px;
-        transform: scale(1);
-    }
-
-    label {
-        font-family: forma-djr-deck, sans-serif;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-    }
-    
-
-    /*media  queries*/
-    @media only screen and (max-width: 900px) { /*ipad*/
-
-        body
-        {
-            width: 100%;
-        }
-        #navbar
-        {
-            height: 15vh;
-            border-radius: 0px;
-        }
-
-        .logo
-        {
-            align-self: center;
-        }
-
-        .container
-        {
-            margin 0 auto;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .contact-box
-        {
-            width: 75%;
-        }
-
-        .hero
-        {
-            width: 100%;
-            height: 60vh;
-            border-radius: 0px;
-            position: absolute;
-            left: 0;
-            
-        }
-
-        .tagline-container
-        {
-            align-self: center;
-            width: 90vw;
-            height: 30vh;
-            padding-top: 15vh;
-            padding-bottom: 5vh;
-            text-shadow: 8px 8px 30px black;
-
-        }
-
-        h1
-        {
-            font-size: 7vh;
-            text-align: center;
-        }
-
-        #arrow
-        {
-            width: 6vw;
-        }
-
-        #navlinks
-        {
-            display: none;
-        }
-
-
-
-        .subtitle-contain
-        {
-            padding-top: 5vh;
-        }
-
-        .about-container
-        {
-            width: 90%;
-            grid-template-columns: 1fr; 
-            grid-gap: 5%;
-        }
-
-        .about-elem
-        {
-            display: grid;
-            grid-template-columns: 1fr 3fr;
-            grid-gap: 12%;
-        }
-
-        .about-img{
-            width: 100%;
-            height: auto;
-        }
-
-        .about-secondary
-        {
-            margin-top: 10%;
-            margin-bottom: 10%;
-            grid-template-columns: 1fr;
-            grid-gap: 12%;
-            width: 80%;
-        }
-
-        .secondary-img
-        {
-            width: 50%;
-            margin: 0 auto;
-        }
-
-    }
-
-    @media only screen and (max-width: 500px) { /*phones*/
-
-        
-        .about-container
-        {
-            grid-template-columns: 1fr; 
-            margin-bottom: 30%;
-            grid-gap: 5%;
-        }
-
-        .about-elem
-        {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .about-img
-        {
-            width: 40%;
-            height: auto;
-        }
-
-        .form-container
-        {
-            width: 90%;
-        }
-
-        h1
-        {
-            font-size: 6vh;
-        }
-    }
-
-
- 
-</style>
-</style>
 <body>
 
         <div id="navbar">
@@ -604,7 +39,7 @@
             <div class="container">
                 <div><img src="./images/hero.jpg" class="hero"></div>
                 <div class="tagline-container"><h1> Free Delivery for Friends!  </h1>
-                    <img src="./images/arrow.svg" id="arrow">
+                    <a href="#about"><img src="./images/arrow.svg" id="arrow"></a>
                 </div>
                 
             </div>
@@ -669,27 +104,27 @@
         <section id="signup">
             <center><h1>Interested in Toppings?</h1></center>
             <div class="form-container">
-                <form method="post" name="signupform" action="signupform.php">
+                <form id="signup-form">
                     
                     <div>
                         <input type="checkbox" name="is-vendor" id="is-vendor">
                         <label for="is-vendor">Please check this box if you represent a vendor.</label>
                     
                         <div class="reveal-if-active">
-                            <label for="vendor name">Name of Vendor Business</label>
-                            <input type="text" id="vendor name" name="vendor name" placeholder="">
-                            <label for="vendor address">Address of Vendor Business</label>
-                            <input type="text" id="vendor address" name="vendor address" placeholder="">
+                            <label for="vendor_name">Name of Vendor Business</label>
+                            <input type="text" id="vendor_name" name="vendor_name" placeholder="">
+                            <label for="vendor_address">Address of Vendor Business</label>
+                            <input type="text" id="vendor_address" name="vendor_address" placeholder="">
                         </div>
                     </div>
-                    <label for="name"> Contact Name</label>
-                    <input type="text" id="name" name="name" placeholder="First Last" required>
-                    <label for="email">Email Address</label>
-                    <input type="text" id="email" name="email" placeholder="Email Address" required>
-                    <label for="phone"> Phone Number</label>
-                    <input type="text" id="phone" name="phone" placeholder="1234567890" required>
+                    <label for="user_name"> Contact Name</label>
+                    <input type="text" id="user_name" name="user_name" placeholder="First Last" required>
+                    <label for="user_email">Email Address</label>
+                    <input type="text" id="user_email" name="user_email" placeholder="Email Address" required>
+                    <label for="user_phone"> Phone Number</label>
+                    <input type="text" id="user_phone" name="user_phone" placeholder="1234567890" required>
 
-                    <center><input type="submit" value="Submit"></center>
+                    <center><input type="submit" value="Send"></center>
                 </form>
             </div>
             <img src="./images/pinkdiagonal.svg" class="diagonal">
@@ -704,33 +139,8 @@
         </section>
 
 
-      <script>
-          window.onscroll = function() {scrollFunction()};
-          var elementTarget = document.getElementById("contact");
-
-            function scrollFunction() {
-            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-                document.getElementById("navbar").style.height = "9%";
-                document.getElementById("navbar").style.borderRadius = "0px";
-                document.getElementById("navlinks").style.fontSize = "15px";
-            } else {
-                document.getElementById("navbar").style.height = "12%";
-                document.getElementById("navbar").style.borderRadius = "0px 0px 20px 20px";
-                document.getElementById("navlinks").style.fontSize = "18px";
-                
-            }
-            
-            if (window.scrollY > elementTarget.offsetTop - 1) {
-                document.getElementById("logo").style.filter = "hue-rotate(-28deg)";
-                document.getElementById("navlinks").style.filter = "hue-rotate(-28deg)";
-            }
-            else
-            {
-                document.getElementById("logo").style.filter = "hue-rotate(0)";
-                document.getElementById("navlinks").style.filter = "hue-rotate(0)";
-            }
-             }
-    </script>
+        <script src="index.js"></script>
+        
 
 
        
