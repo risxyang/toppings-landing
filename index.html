@@ -16,7 +16,14 @@
      window.onload = function() {
             document.getElementById('signup-form').addEventListener('submit', function(event) {
             event.preventDefault();
-             emailjs.send('signup_form', 'signup', this);
+            var templateParams = {
+                user_name: document.getElementById("signup-form").elements[0].value,
+                user_email: document.getElementById("signup-form").elements[1].value,
+                user_phone: document.getElementById("signup-form").elements[2].value,
+                vendor_name: document.getElementById("signup-form").elements[4].value,
+                vendor_address: document.getElementById("signup-form").elements[5].value
+            };
+             emailjs.send('signup_form', 'signup', templateParams);
         });
     }
 </script>
@@ -106,6 +113,13 @@
             <div class="form-container">
                 <form id="signup-form">
                     
+                    
+                    <label for="user_name"> Contact Name</label>
+                    <input type="text" id="user_name" name="user_name" placeholder="First Last" required>
+                    <label for="user_email">Email Address</label>
+                    <input type="text" id="user_email" name="user_email" placeholder="Email Address" required>
+                    <label for="user_phone"> Phone Number</label>
+                    <input type="text" id="user_phone" name="user_phone" placeholder="1234567890" required>
                     <div>
                         <input type="checkbox" name="is-vendor" id="is-vendor">
                         <label for="is-vendor">Please check this box if you represent a vendor.</label>
@@ -117,12 +131,6 @@
                             <input type="text" id="vendor_address" name="vendor_address" placeholder="">
                         </div>
                     </div>
-                    <label for="user_name"> Contact Name</label>
-                    <input type="text" id="user_name" name="user_name" placeholder="First Last" required>
-                    <label for="user_email">Email Address</label>
-                    <input type="text" id="user_email" name="user_email" placeholder="Email Address" required>
-                    <label for="user_phone"> Phone Number</label>
-                    <input type="text" id="user_phone" name="user_phone" placeholder="1234567890" required>
 
                     <center><input type="submit" value="Send"></center>
                 </form>
