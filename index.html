@@ -24,7 +24,9 @@
                     vendor_address: document.getElementById("signup-form").elements[5].value
                 };
                 emailjs.send('signup_form', 'signup', templateParams);
-                document.getElementById("signup-form").classList.add("reveal-if-active");
+                document.getElementById("signup-form").classList.add("reveal-if-active");  //hides form
+                document.getElementById("confirmation").classList.remove("reveal-if-active");
+                document.getElementById("confirmation").classList.add("visible");
             });
 
         //hide the form
@@ -138,6 +140,10 @@
 
                     <center><input type="submit" value="Send"></center>
                 </form>
+
+                <div class="reveal-if-active" id="confirmation">
+                    <center><h2> Thank you! Your information has been received.</h2></center>
+                </div>
             </div>
             <img src="./images/pinkdiagonal.svg" class="diagonal">
         </section>

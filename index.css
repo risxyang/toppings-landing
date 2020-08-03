@@ -393,6 +393,7 @@ font-weight: 700;
 font-size: 16px;
 }
 
+
 .form-container {
 width: 50%;
 margin: 0 auto;
@@ -423,6 +424,15 @@ label {
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
+}
+
+.visible
+{
+    opacity: 1;
+    max-height: 200px;
+    overflow: visible;
+    padding: 10px 20px;
+    transform: scale(1);
 }
 
 
