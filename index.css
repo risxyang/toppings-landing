@@ -9,6 +9,7 @@ html
 body
 {
     width: 100%;
+    margin: 0;
     overflow-x: hidden;
 }
 
@@ -83,15 +84,14 @@ a:any-link
 
 #navbar
 {
-    margin: 0 auto;
     position: fixed;
     top: 0;
     left: 0;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 97%;
     height: 12%;
-    transition: 0.4s;
+    transition: 0.09s;
     background-color: white;
     color:#FF5200;
     border-bottom: 0.5px solid  #FF5200;
@@ -117,7 +117,7 @@ a:any-link
     position: relative;
     top: -45%;
     right: 5%;
-    transition: 0.4s;
+    transition: 0.2s;
 }
 
 .navlink
@@ -155,7 +155,7 @@ a:any-link
     width: auto;
     align-self: flex-start;
     filter: hue-rotate(0);
-    transition: 0.4s;
+    transition: 0.2s;
 }
 
 .tagline-container
@@ -166,6 +166,7 @@ a:any-link
     align-self: flex-end;
     display: flex;
     flex-direction: column;
+    align-items: center;
     position:  relative;
     left: 2vw;
 }
@@ -247,6 +248,13 @@ a:any-link
     margin-bottom: 10%;
     background: white;
     border-radius: 20px;
+}
+
+#covid
+{
+    background-color: #0083FF;
+    color: white;
+    width: 100%;
 }
 
 .about-secondary
@@ -439,19 +447,29 @@ label {
 /*media  queries*/
 @media only screen and (max-width: 900px) { /*ipad*/
 
+    #about, #signup, #contact, #covid
+    {
+        /* padding-top: 10%; */
+        padding-bottom: 10%;
+        height: 100%;
+    }
+
     body
     {
         width: 100%;
     }
     #navbar
     {
-        height: 15vh;
+        height: 12%;
         border-radius: 0px;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        padding-top: 3%;
+        padding-bottom: 1%;
     }
 
-    .logo
+    #logo
     {
         align-self: center;
     }
