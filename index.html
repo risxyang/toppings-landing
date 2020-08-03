@@ -15,16 +15,20 @@
 <script>
      window.onload = function() {
             document.getElementById('signup-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var templateParams = {
-                user_name: document.getElementById("signup-form").elements[0].value,
-                user_email: document.getElementById("signup-form").elements[1].value,
-                user_phone: document.getElementById("signup-form").elements[2].value,
-                vendor_name: document.getElementById("signup-form").elements[4].value,
-                vendor_address: document.getElementById("signup-form").elements[5].value
-            };
-             emailjs.send('signup_form', 'signup', templateParams);
-        });
+                event.preventDefault();
+                var templateParams = {
+                    user_name: document.getElementById("signup-form").elements[0].value,
+                    user_email: document.getElementById("signup-form").elements[1].value,
+                    user_phone: document.getElementById("signup-form").elements[2].value,
+                    vendor_name: document.getElementById("signup-form").elements[4].value,
+                    vendor_address: document.getElementById("signup-form").elements[5].value
+                };
+                emailjs.send('signup_form', 'signup', templateParams);
+                document.getElementById("signup-form").classList.add("reveal-if-active");
+            });
+
+        //hide the form
+        
     }
 </script>
 </head>
