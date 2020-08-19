@@ -275,6 +275,10 @@ a:any-link
     flex-direction: column;
 }
 
+#vendor
+{
+    display: none;
+}
 
 .about-secondary
 {
