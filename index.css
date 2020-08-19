@@ -265,7 +265,7 @@ a:any-link
     border-radius: 20px;
 }
 
-#covid
+#covid, #vendor
 {
     background-color: #0083FF;
     color: white;
@@ -274,6 +274,7 @@ a:any-link
     display: flex;
     flex-direction: column;
 }
+
 
 .about-secondary
 {
@@ -411,6 +412,29 @@ a:any-link
     object-fit: cover;
     padding-bottom:2vh;
 }
+
+.aside
+{
+    margin-top: 5%;
+    width:  100%;
+    text-align: center;
+}
+
+.loginsignup {
+    width: 40%;
+    display: inline-block;
+    background-color: #ffffff;
+    color: #0083FF;
+    padding: 20px 20px;
+    margin: 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer; 
+    font-family: forma-djr-deck, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    }
 
 input[type=checkbox]
 {
@@ -686,6 +710,11 @@ label {
     .form-container
     {
         width: 90%;
+    }
+
+    .loginsignup
+    {
+        width: 70%;
     }
 
     h1

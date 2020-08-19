@@ -20,8 +20,9 @@
                     user_name: document.getElementById("signup-form").elements[0].value,
                     user_email: document.getElementById("signup-form").elements[1].value,
                     user_phone: document.getElementById("signup-form").elements[2].value,
-                    vendor_name: document.getElementById("signup-form").elements[4].value,
-                    vendor_address: document.getElementById("signup-form").elements[5].value
+                    uni_affiliation: document.getElementById("signup-form").elements[3].value,
+                    vendor_name: document.getElementById("signup-form").elements[5].value,
+                    vendor_address: document.getElementById("signup-form").elements[6].value
                 };
                 emailjs.send('signup_form', 'signup', templateParams);
                 document.getElementById("signup-form").classList.add("reveal-if-active");  //hides form
@@ -41,6 +42,7 @@
                                 <span class="navlink":><a href="#about">About Us</a></span>
                                 <!--<span class="navlink":> <a href="#our-partners">Our Partners</a></span>
                                 <span class="navlink":><a href="#testimonials">Testimonials</a></span>-->
+                                <span class="navlink":><a href="#vendor">Vendor Portal</a></span>
                                 <span class="navlink":> <a href="#signup">Sign Up</a></span>
                                 <span class="navlink":><a href="#contact">Contact Us</a></span>
             </div>
@@ -92,6 +94,19 @@
             </div>
             <img src="./images/diagonal.svg" class="diagonal">
         </section>
+        <section id="vendor">
+            <div class="container">
+                <div class="subtitle subtitle-contain center">
+                        <h1>Vendor Portal</h1>
+                        <h2> Coming soon! </h2>
+                        <!-- <h2> Are you currently a participating vendor or interested in becoming one? </br> Log in below if you have already created an account for our vendor portal. </br> Sign up if you haven't already! </h2>
+                <div class="aside">
+                <a href="portal.html"><button class="loginsignup"> Log In </button></a>
+                <a href="signup.html"><button class="loginsignup"> Sign Up </button></a>
+                </div> -->
+            </div>
+            </div>
+        </section>
        <!-- <section id="our-partners">
             <div class="container">
                 <div class="center"><h1>Our Partners</h1>
@@ -131,6 +146,8 @@
                     <input type="text" id="user_email" name="user_email" placeholder="Email Address" required>
                     <label for="user_phone"> Phone Number</label>
                     <input type="text" id="user_phone" name="user_phone" placeholder="1234567890" required>
+                    <label for="uni_affiliation"> If you are a university student, which school do you attend? </label>
+                    <input type="text" id="uni_affiliation" name="uni_affiliation" placeholder="XYZ University">
                     <div>
                         <input type="checkbox" name="is-vendor" id="is-vendor">
                         <label for="is-vendor">Please check this box if you represent a vendor.</label>
@@ -164,10 +181,8 @@
         </section>
 
 
-        <script src="index.js"></script>
+    <script src="index.js"></script>
         
 
-
-       
 </body>
 </html>
