@@ -60,6 +60,7 @@ a:any-link
     font-style: normal;
     font-weight: 700;
     text-decoration: none;
+    color:  #FF5200;
 }
 
 
@@ -122,6 +123,7 @@ a:any-link
 .navlink
 {
     padding-left: 1vw;
+    color:  #FF5200;
 }
 
 .home-container
@@ -559,14 +561,14 @@ label {
 
     .container
     {
-        margin 0 auto;
+        margin: 0 auto;
         width: 100%;
         display: flex;
         flex-direction: column;
     }
     .home-container
     {
-        margin 0 auto;
+        margin: 0 auto;
         padding: 0;
         width: 100%;
         display: flex;
@@ -663,7 +665,7 @@ label {
 
     .contact-info
     {
-        margin 0 auto;
+        margin: 0 auto;
         grid-template-columns: 1fr;
         grid-gap: 12%;
         width: 80%;

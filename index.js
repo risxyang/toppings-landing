@@ -1,5 +1,4 @@
-
-
+//changes color of navbar items according to where you've scrolled
 window.onscroll = function() {scrollFunction()};
 var pink = document.getElementById("contact");
 var blue = document.getElementById("covid");

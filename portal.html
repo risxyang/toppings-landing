@@ -43,11 +43,7 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
-
-    // Get a reference to the database service
-    //var database = firebase.database();
-    //var db = firebase.database;
-
+    
     </script>
     <script src="portal.js"></script>
 
@@ -105,7 +101,6 @@
             <div class="center button-container">
               <button type='submit' class="abutton  portal-button" id="menu-add-button" onclick="addMenuItem()">Add Menu Item</button> 
               <button type='submit' class="abutton portal-button" id="refresh-menu-button" onclick="refreshMenu()">Refresh to View Changes</button>
-              <!-- <button type='submit' class="abutton portal-button" id="text-menu-button" onclick="showTextMenu()">Simplified View</button> -->
             </div>
             <form id="menu-add">
               <label for="item-name">Name of Menu Item</label>
