@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://use.typekit.net/vxy1uqp.css">
+  <link rel="stylesheet" type="text/css" href="./index.css">
+  <link rel="stylesheet" type="text/css" href="./formpage.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <title>Vendor Portal - Toppings Delivery Service</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js'></script> 
+  <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css">
+  </head>
+  <body>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    	
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-storage.js"></script>
+
+    
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBxWj7GcQhokdLIGJ61_Y_in19Ww6aoF_w",
+        authDomain: "toppings-vendor-portal.firebaseapp.com",
+        databaseURL: "https://toppings-vendor-portal.firebaseio.com",
+        projectId: "toppings-vendor-portal",
+        storageBucket: "toppings-vendor-portal.appspot.com",
+        messagingSenderId: "407995191596",
+        appId: "1:407995191596:web:ed8697f4c491e19e2e5c89",
+        measurementId: "G-0EF3MF0HJH"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    // Get a reference to the database service
+    //var database = firebase.database();
+    //var db = firebase.database;
+
+    </script>
+    <script src="portal.js"></script>
+
+<section id="form">
+    <div id="main-div">
+        <h1>Toppings Vendor Portal</h1>
+        <div id="login-form-container">
+            <form id="vendor-login">
+            <h2> Log In</h2>
+            <label for="email"> Email Address</label><input type="email" placeholder="Email" id="email"/>
+            <label for="password"> Password</label><input type="password" placeholder="Password" id="password"/>
+            <button id ="login-button" type="submit" onclick="login()"> Submit </button>
+            </form>
+        </div>
+    </div>
+
+
+      <div id="loggedout-div" class="reveal-if-active">
+        <h2>You have successfully signed out.</h2>
+        <a href="index.html"><button class = "form-button">Back to Home Page</button></a>
+        <a href="portal.html"><button class = "form-button">Back to Sign In</button></a>
+      </div>
+</section>
+<section id="portal">
+
+      <div id="portal-body">
+        <div id="portal-sidebar">
+          <img src="./images/logo white.png" style="width: 100%;">
+          <div class="sidebar-container">
+          <button class="tablink" id="dashboard-link" onclick="show(event, 'dashboard')"  >Dashboard</a> </br>
+          <button class="tablink" id="tos-link" onclick="show(event, 'tos')">Terms and Services </a> </br>
+          <button class="tablink" id="menu-link" onclick="show(event, 'menu')"> Your Menu</a> </br>
+          <button class="tablink" id="promotions-link" onclick="show(event, 'promos')">Your Active Promotions</a> </br>
+          <button class="tablink" id="settings-link" onclick="show(event, 'settings')"> Settings</a> </br>
+          <button id ="logout-button" type="submit" onclick="logout()">Log Out</button>
+          </div>
+        </div>
+        <div id="portal-main">
+          <div id="dashboard" class="tabcontent">
+            <p>
+              <h2 id="user_para" class="center"> You're currently logged in.</h2>
+            </p>
+            <p>
+              If you have not done so already, please navigate to the "settings" tab and input your user settings. 
+              </p>
+          </div>
+          <div id="tos" class="tabcontent">  
+            <h2 class="center"> Terms and Services </h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+          </div>
+          <div id="menu" class="tabcontent">
+            <h2 class="center"> Your Menu Items</h2>
+            <div class="center button-container">
+              <button type='submit' class="abutton  portal-button" id="menu-add-button" onclick="addMenuItem()">Add Menu Item</button> 
+              <button type='submit' class="abutton portal-button" id="refresh-menu-button" onclick="refreshMenu()">Refresh to View Changes</button>
+              <!-- <button type='submit' class="abutton portal-button" id="text-menu-button" onclick="showTextMenu()">Simplified View</button> -->
+            </div>
+            <form id="menu-add">
+              <label for="item-name">Name of Menu Item</label>
+              <input type="text" id="item-name" name="item-name" required>
+              <label for="item-price">Price of Menu Item</label>
+              <input type="text" id="item-price" name="item-price" required>
+              <label for="item-img">Upload an Image</label>
+              <input type="file" id="item-img" name="item-img" accept="image/png, image/jpeg">
+              <button type='submit' class="portal-button"  id="add_el" onclick="addMenuItemSubmit()">Submit</button>
+              <button type='submit' class="portal-button" onclick="cancelAddMenuItem()">Cancel</button>
+            </form>
+            <p id="menuCount" class="center"></p>
+            <div id="menuDisplay">
+              <div id="app" class="mcontainer"></div>
+              <template id="item_template">
+                <div class="item-container">
+                  <div class="item-image" style="background-image: url('{{img}}'); background-size: cover;"> 
+                   
+                  </div>
+                  <div><p>{{ name }} : ${{ price }}</p> </div>
+                <button class="del_el portal-button" onclick="confirm('Are you sure?'); deleteMenuItem('{{name}}')">Delete</button>
+                </div>
+              </template>
+            </div>
+          </div>
+          <div id="promos" class="tabcontent">
+            <h2 class="center"> Your Active Promotions </h2>
+            <div class="center button-container">
+              <button type='submit' class="abutton  portal-button" id="promo-add-button" onclick="addPromo()">Add Promotion</button> 
+            </div>
+            <form id="promo-add">
+              <label for="promo-name">Name of Promotion</label>
+              <input type="text" id="promo-name" name="promo-name" required>
+              <label for="promo-desc">Description</label>
+              <input type="text" id="item-price" name="item-price" required>
+              <button type='submit' class="portal-button"  id="add_el" onclick="addPromoSubmit()">Submit</button>
+              <button type='submit' class="portal-button" onclick="cancelAddPromo()">Cancel</button>
+            </form>
+            <p id="promoCount" class="center"></p>
+            <div id="promoDisplay">
+              <div id="promoapp" class="pcontainer"></div>
+              <template id="promo_template">
+                <div class="promo">
+                  <div><p><b>Promotion Name: </b>{{ name }} </br>  <b>Promotion Description: </b>{{ desc }}</p> </div>
+                  <button class="del_el portal-button" onclick="confirm('Are you sure?'); deletePromo('{{name}}')">Delete</button>
+                </div>
+              </template>
+            </div>
+          </div>
+          <div id="settings" class="tabcontent">
+            <h2 class="center"> Your Settings </h2>
+            <div id="settings-confirm">
+              <h2> Thank you, your modifications have been received. Your Changes:</h2>
+            </div>
+            <div id="current-settings">
+              <p id ="current-name"></p>
+              <p id ="current-phone"></p>
+              <p id ="current-email"></p>
+              <p id ="current-vbname"></p>
+              <p id ="current-vbaddress"></p>
+            </div>
+            <button type='submit' class="portal-button" id="modif-settings-button" onclick="modifySettings()">Modify Your Settings</button>
+            <form id="settings-form">
+                    <label for="user_name"> Your Name</label>
+                    <input type="text" id="user_name" name="user_name" placeholder="First Last" required>
+                    <label for="user_email">Email Address (Changes to this field will alter the email you use to login.)</label>
+                    <input type="text" id="user_email" name="user_email" placeholder="Email Address" required>
+                    <label for="user_phone"> Phone Number</label>
+                    <input type="text" id="user_phone" name="user_phone" placeholder="1234567890" required>
+                    <label for="vendor_name">Name of Vendor Business</label>
+                    <input type="text" id="vendor_name" name="vendor_name" placeholder="" required>
+                    <label for="vendor_address">Address of Vendor Business</label>
+                    <input type="text" id="vendor_address" name="vendor_address" placeholder="" required>
+                    <button type="submit" class="portal-button" onclick="submitSettings()"> Save Your Changes </button>
+                    <button type='submit' class="portal-button" id="cancel-button" onclick="cancelModifySettings()">Cancel</button>
+            </form>
+          </div>
+         
+        </div>
+      </div>
+
+      </body>
+      </html>
+    
+</section>
+
+</body>
+</html>

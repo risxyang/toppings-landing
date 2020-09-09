@@ -59,7 +59,6 @@ a:any-link
     font-family: forma-djr-deck, sans-serif;
     font-style: normal;
     font-weight: 700;
-    color:#FF5200;
     text-decoration: none;
 }
 
@@ -117,6 +116,7 @@ a:any-link
     top: -45%;
     right: 5%;
     transition: 0.2s;
+    color: #FF5200;
 }
 
 .navlink
@@ -275,10 +275,6 @@ a:any-link
     flex-direction: column;
 }
 
-#vendor
-{
-    display: none;
-}
 
 .about-secondary
 {

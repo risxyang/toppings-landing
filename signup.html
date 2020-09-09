@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://use.typekit.net/vxy1uqp.css">
+  <link rel="stylesheet" type="text/css" href="./index.css">
+  <link rel="stylesheet" type="text/css" href="./formpage.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <title>Vendor Portal Signup - Toppings Delivery Service</title>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css">
+  </head>
+  <body>
+    <script src="signup.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBxWj7GcQhokdLIGJ61_Y_in19Ww6aoF_w",
+        authDomain: "toppings-vendor-portal.firebaseapp.com",
+        databaseURL: "https://toppings-vendor-portal.firebaseio.com",
+        projectId: "toppings-vendor-portal",
+        storageBucket: "toppings-vendor-portal.appspot.com",
+        messagingSenderId: "407995191596",
+        appId: "1:407995191596:web:ed8697f4c491e19e2e5c89",
+        measurementId: "G-0EF3MF0HJH"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    </script>
+
+
+    <section id="form">
+        <div id="main-div">
+            <h1>Toppings Vendor Portal</h1>
+            <div id="signup-form-container">
+                <form id="vendor-signup">
+                <h2> Sign Up with an Email and Password </h2>
+                <label for="email"> Email Address</label><input type="email" placeholder="Email" id="email"/>
+                <label for="password"> Password</label><input type="password" placeholder="Password" id="password"/>
+                <button id ="signup-button" type="submit"> Submit </button>
+                </form>
+                <h2>Have an account already? <a href="portal.html">Log In here.</a> </h2>
+            </div>
+        </div>
+        
+          <div id="signedup-div" class="reveal-if-active">
+            <h2>Thank you for signing up. You may now <a href="portal.html">Log In here.</a></h2>
+          </div>
+          </body>
+          </html>
+        
+    </section>
+    
+  </body>
+  </html>
+
+
+
